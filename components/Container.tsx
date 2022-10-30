@@ -65,8 +65,10 @@ const Container = ({}) => {
   const alertSomething = object => alert(JSON.stringify(object, null, 4));
 
   return (
-    <div className='w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-200 relative'>
-      <button onClick={() => alertSomething({ outfitColour, userSelection })} className="fixed">Baray</button>
+    <div className='w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>
+      <button onClick={() => alertSomething({ outfitColour, userSelection })} className='fixed'>
+        Baray
+      </button>
       <div className='w-full h-full lg:py-12 lg:items-center lg:justify-center lg:flex' style={{ width: "100vw", height: "100vh", margin: "0" }}>
         <div className='h-full lg:flex lg:flex-row flex flex-col w-full lg:w-11/12 lg:items-center lg:justify-center lg:px-6'>
           <div className='h-1/6 lg:hidden items-center justify-center flex font-black text-2xl uppercase'>Fashify</div>
@@ -103,7 +105,7 @@ const Container = ({}) => {
           </div>
 
           {showClothTypeSelection && (
-            <div className='flex fixed bottom-0 left-0 right-0 items-end lg:items-center justify-end h-1/6 p-0 rounded-t-xl lg:right-0 lg:top-0 lg:ml-auto  lg:bottom-0 lg:w-1/6 lg:h-full lg:rounded-r-xl rounded-xl border-t-4 lg:border-l-4 border-slate-300 bg-slate-200'>
+            <div className='flex fixed bottom-0 left-0 right-0 items-end lg:items-center justify-end h-1/6 p-0 rounded-t-xl lg:right-0 lg:top-0 lg:ml-auto  lg:bottom-0 lg:w-1/6 lg:h-full lg:rounded-r-xl rounded-xl border-t4 lg:border-l4 border-slate-300 bg-blue-100'>
               <button className='flex items-center justify-center absolute top-3 right-3 font-black text-black lg:left-3 lg:top-3 lg:justify-start' onClick={() => setShowClothTypeSelection(false)}>
                 X
               </button>
@@ -111,7 +113,7 @@ const Container = ({}) => {
                 {genderOutfits[userSelection.gender][currentSelectTedFashionPart].map(eachFashionPartDetailed => {
                   if (eachFashionPartDetailed == "items") return;
                   return (
-                    <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-black text-xl lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-orange-200 hover:border-orange-700 hover:text-orange-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? " bg-orange-200 border-orange-700 text-orange-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`}>
+                    <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-black hover:border-0 text-lg lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-orange-200 hover:border-orange-700 hover:text-orange-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? " bg-orange-200 border-orange-700 text-orange-700 " : " rounded-xl  border-gray-300 "}`}>
                       {eachFashionPartDetailed}
                     </div>
                   );
