@@ -54,11 +54,11 @@ input[type="color"]::-webkit-color-swatch {
 
 ::-webkit-scrollbar {
   width: 1px;
-  height: 8px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lightgrey;
+  background: rgb(255, 139, 139);
   border-radius: 5rem;
 }
 
