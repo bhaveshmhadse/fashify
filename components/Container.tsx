@@ -99,7 +99,7 @@ const Container = ({}) => {
                 let { type, height, toShow } = eachObject;
                 return (
                   <div key={Math.random().toString()} className={`flex items-center justify-start w-full ${height} ${!toShow ? " invisible " : ""} my-1 lg:w-1/2`}>
-                    <input className='bg-transparent rounded-full w-1/2 h-3 ' type='color' name={type} id={type} value={outfitColour[type] || "#ffff"} onChange={handleColourChange} />
+                    <input className='bg-transparent rounded-full w-1/2 h-3 border-black' type='color' name={type} id={type} value={outfitColour[type] || "#ffff"} onChange={handleColourChange} />
                   </div>
                 );
               })}
