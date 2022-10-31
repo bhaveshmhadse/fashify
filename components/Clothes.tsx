@@ -5,9 +5,7 @@ const RoundNeckTshirt = ({ color }) => {
   let [getColour, setgetColour] = useState("black");
 
   useEffect(() => {
-    console.log("Colour is", color);
-
-    setgetColour(getItemFromLocalStorage("userSelection")?.torso || "red");
+    setgetColour(getItemFromLocalStorage("userSelection")?.torso?.color || "red");
   }, []);
 
   return (

@@ -63,7 +63,8 @@ const Container = ({}) => {
     let { name, value } = e.target;
 
     setoutfitColour(previousOutfit => ({ ...previousOutfit, [name]: value }));
-    setItemtoLocalStorage("userSelection", { ...outfitColour, [name]: value });
+    setuserSelection(previousSelection => ({ ...previousSelection, [name]: { type: previousSelection[name].type, color: value } }));
+    setItemtoLocalStorage("userSelection", { ...userSelection, [name]: { type: userSelection[name].type, color: value } });
     reloadClothes();
   };
 
@@ -103,7 +104,7 @@ const Container = ({}) => {
                 let { type, height, toShow } = eachObject;
                 return (
                   <div key={Math.random().toString()} className={`flex items-center justify-start w-full ${height} ${!toShow ? " invisible " : ""} my-1 lg:w-1/2`}>
-                    <input className='bg-transparent rounded-full w-1/2 h-3 border-black ' type='color' name={type} id={type} value={userSelection[type]} onChange={handleColourChange} />
+                    <input className='bg-transparent rounded-full w-1/2 h-3 border-black ' type='color' name={type} id={type} value={userSelection[type]?.color} onChange={handleColourChange} />
                   </div>
                 );
               })}
