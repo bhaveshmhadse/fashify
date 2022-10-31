@@ -100,7 +100,7 @@ const Container = ({}) => {
               return (
                 <div key={Math.random().toString()} onClick={() => handleClothesSelectionModal(eachFashionPart)} className=' px-8  h-3/4 items-center justify-center flex font-black text-xl lg:w-full lg:h-full lg:m-0 lg:p-0 items rounded-xl border-1 border-gray-300'>
                   {eachFashionPart}
-                  <img src={`${eachFashionPart}.png`} alt='' srcset='' />
+                  <img src={`${eachFashionPart}.png`} alt='' />
                 </div>
               );
             })}
@@ -116,7 +116,7 @@ const Container = ({}) => {
                   if (eachFashionPartDetailed == "items") return;
                   return (
                     <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-black hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? " bg-blue-200 border-blue-700 text-blue-700 " : " rounded-xl  border-gray-300 "} flex-col`}>
-                      <img src={`${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.png`} alt='' srcset='' />
+                      <img src={`${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.png`} alt=''  />
                       <div className="text-gray-600 m-auto">{eachFashionPartDetailed}</div>
                     </div>
                   );
