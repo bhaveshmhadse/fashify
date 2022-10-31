@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { RoundNeckTshirt } from "./Clothes";
+import { setItemtoLocalStorage } from "./utils";
 
 const Container = ({}) => {
   // States
@@ -6,7 +8,6 @@ const Container = ({}) => {
 
   let [userSelection, setuserSelection] = useState({
     gender: "men",
-
     torso: "",
     pants: "",
     accessories: "",
@@ -46,6 +47,8 @@ const Container = ({}) => {
     shoe: "#ffff",
   });
 
+  let [show, setshow] = useState(true);
+
   // Functions
   const handleClothesSelectionModal = selectTedFashionPart => {
     setShowClothTypeSelection(true);
@@ -60,9 +63,19 @@ const Container = ({}) => {
     let { name, value } = e.target;
 
     setoutfitColour(previousOutfit => ({ ...previousOutfit, [name]: value }));
+    setItemtoLocalStorage("userSelection", { ...outfitColour, [name]: value });
+    reloadClothes();
   };
 
   const alertSomething = object => alert(JSON.stringify(object, null, 4));
+
+  const reloadClothes = () => {
+    setshow(false);
+
+    setTimeout(() => {
+      setshow(true);
+    }, 0);
+  };
 
   return (
     <div className='w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>
@@ -86,12 +99,17 @@ const Container = ({}) => {
                 let { type, height, toShow } = eachObject;
                 return (
                   <div key={Math.random().toString()} className={`flex items-center justify-start w-full ${height} ${!toShow ? " invisible " : ""} my-1 lg:w-1/2`}>
-                    <input className='bg-transparent rounded-full w-full ' type='color' name={type} id={type} value={outfitColour[type] || "#ffff"} onChange={handleColourChange} />
+                    <input className='bg-transparent rounded-full w-1/2 h-3 ' type='color' name={type} id={type} value={outfitColour[type] || "#ffff"} onChange={handleColourChange} />
                   </div>
                 );
               })}
             </div>
-            <div className='w-full h-full flex items-center justify-center border-gray-300'>Man Image</div>
+            <div className='w-full  h-full flex flex-col items-center justify-center border-gray-300'>
+              <div className='bg-blue- w-full h-1/6 mt-1 flex items-center justify-center'>{/* <RoundNeckTshirt color="black"/> */}.</div>
+              <div className='bg-blue- w-full h-2/6 mt-1 flex items-center justify-center'>{show && <RoundNeckTshirt color={userSelection.torso} />}</div>
+              <div className='bg-blue- w-full h-3/6 mt-1 flex items-center justify-center'>{/* <RoundNeckTshirt color="black"/> */}</div>
+              <div className='bg-blue- w-full h-1/6 mt-1 flex items-center justify-center'>{/* <RoundNeckTshirt color="black"/> */}</div>
+            </div>
           </div>
           <div className='h-1/6 mt-10 z-0 flex items-center overflow-y-auto  lg:hidden lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 '></div>
           <div className='h-auto pb-2 fixed w-full lg:relative z-20 bottom-0  flex items-center  overflow-y-auto  lg:grid lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 '>
@@ -116,8 +134,8 @@ const Container = ({}) => {
                   if (eachFashionPartDetailed == "items") return;
                   return (
                     <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-black hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? " bg-blue-200 border-blue-700 text-blue-700 " : " rounded-xl  border-gray-300 "} flex-col`}>
-                      <img src={`${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.png`} alt=''  />
-                      <div className="text-gray-600 m-auto">{eachFashionPartDetailed}</div>
+                      <img className='w-16 h-auto icon ' src={`${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.png`} alt='' />
+                      <div className='text-gray-600 m-auto'>{eachFashionPartDetailed}</div>
                     </div>
                   );
                 })}
