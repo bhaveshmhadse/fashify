@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RoundNeckTshirt } from "./Clothes";
-import { setItemtoLocalStorage } from "./utils";
+import { getItemFromLocalStorage, setItemtoLocalStorage } from "./utils";
 
 const Container = ({}) => {
   // States
@@ -76,6 +76,10 @@ const Container = ({}) => {
       setshow(true);
     }, 0);
   };
+
+  useEffect(() => {
+    setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
+  }, []);
 
   return (
     <div className='w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>
