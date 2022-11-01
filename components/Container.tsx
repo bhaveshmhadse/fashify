@@ -131,7 +131,7 @@ const Container = ({}) => {
             </div>
             <div className='w-full  h-full flex flex-col items-center justify-center border-gray-300'>
               <div className='bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center'>{/* <RoundNeckTshirt color="black"/> */}.</div>
-              <div className='bg-blue-30  w-full h-2/6 mt-1 flex items-center justify-center'>{show && <RoundNeckTshirt color={userSelection.torso} />}</div>
+              <div className='bg-blue-30  w-full h-2/6 mt-1 flex items-center justify-center'>{show && <RoundNeckTshirt color={userSelection.torso.toString()} />}</div>
               <div className='bg-blue-30 bg-slate-100 pt-2 z-10 w-full h-3/6 mt-1 flex items-center justify-center'>{show && <Jeans />}</div>
               <div className='bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center'>{show && <Sneaker2 />}</div>
             </div>
