@@ -116,6 +116,10 @@ const Container = ({}) => {
       setItemtoLocalStorage("authenticate", true);
       setprivileges(true);
       alert("You have been authenticated!");
+      return;
+    }
+    else{
+        alert("Authentication failed.")
     }
   };
   useEffect(() => {
