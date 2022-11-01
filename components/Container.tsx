@@ -95,7 +95,7 @@ const Container = ({}) => {
     }, 2000);
   }, []);
 
-  return <div className=' w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>Baray</div>;
+  return <div className=' w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative text-white'>Baray re</div>;
 };
 
 export default Container;
