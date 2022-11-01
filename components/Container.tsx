@@ -96,16 +96,8 @@ const Container = ({}) => {
   }, []);
 
   return (
-    <div className='m-0 w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>
-      {/* <button onClick={() => alertSomething({ outfitColour, userSelection })} className='m-0 fixed'>
-        Baray
-      </button> */}
-      <button className='m-0 fixed top-52' onClick={() => localStorage.clear()}>
-        Reset Local
-      </button>
-      <button className='m-0 fixed top-64' onClick={() => setshowDown(prev => !prev)}>
-        Hide it
-      </button>
+    <div className=' w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>
+      
       <div className='m-0 w-full h-full lg:py-12 lg:items-center lg:justify-center lg:flex' style={{ width: "100vw", height: "100vh", margin: "0" }}>
         <div className='m-0 h-full lg:flex lg:flex-row flex flex-col w-full lg:w-11/12 lg:items-center lg:justify-center lg:px-6'>
           <div className='m-0 h-1/6 mt-10 z-0 flex items-center overflow-y-auto  lg:hidden lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 '></div>
