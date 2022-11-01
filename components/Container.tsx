@@ -9,10 +9,10 @@ const Container = ({}) => {
   let [userSelection, setuserSelection] = useState({
     gender: "men",
     head: { type: "", color: "white" },
-    torso: { type: "", color: "#ffff" },
-    pants: { type: "", color: "grey" },
+    torso: { type: "Round Neck Tshirt", color: "#ffff" },
+    pants: { type: "Jeans", color: "grey" },
     accessories: { type: "", color: undefined },
-    shoes: { type: "", color: "black" },
+    shoes: { type: "Low Top Sneakers", color: "black" },
   });
 
   let [outfitType, setoutfitsType] = useState([
@@ -72,6 +72,7 @@ const Container = ({}) => {
     setoutfitColour(previousOutfit => ({ ...previousOutfit, [name]: value }));
     setuserSelection(previousSelection => ({ ...previousSelection, [name]: { type: previousSelection[name].type, color: value } }));
     setItemtoLocalStorage("userSelection", { ...userSelection, [name]: { type: userSelection[name].type, color: value } });
+
     reloadClothes();
   };
 
@@ -86,7 +87,7 @@ const Container = ({}) => {
 
     setTimeout(() => {
       reloadClothes();
-    }, 3000);
+    }, 2000);
   };
 
   const reloadClothes = () => {
@@ -131,7 +132,7 @@ const Container = ({}) => {
 
   useEffect(() => {
     if (getItemFromLocalStorage("authenticate")) setprivileges(true);
-    setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
+    if (getItemFromLocalStorage("userSelection")) setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
     setTimeout(() => {
       // reloadClothes()
       console.log("userSelection is:", userSelection);
@@ -144,7 +145,7 @@ const Container = ({}) => {
         <div className='m-0 h-full lg:flex lg:flex-row flex flex-col w-full lg:w-11/12 lg:items-center lg:justify-center lg:px-6'>
           <div className='m-0 w-full py-4 lg:hidden items-center justify-center flex font-black text-2xl uppercase Quivera'>
             <div className='flex items-center  w-2/6 justify-around'>
-              <img onClick={() => localStorage.clear()} className='w-1/6 mr-auto icon ' src='magic-wand.svg' alt='' />
+              <img onClick={() => localStorage.clear()} className='w-1/6 mr-auto icon z-50' src='magic-wand.svg' alt='' />
               <div className='m-0 select-none' onClick={handleDebugger}>
                 Fashify
               </div>
@@ -153,7 +154,7 @@ const Container = ({}) => {
 
           <div className='m-0 w-full py-4 lg:fixed  lg:block hidden items-center justify-center top-0 font-black text-2xl uppercase Quivera'>
             <div className='flex items-center   w-1/6 justify-center'>
-              <img className='w-1/6 mr-auto lg:mr-6 icon ' src='magic-wand.svg' alt='' />
+              <img className='w-1/6 mr-auto lg:mr-6 icon ' onClick={() => localStorage.clear()} src='magic-wand.svg' alt='' />
               <div className='m-0 lg:text-4xl' onClick={handleDebugger}>
                 Fashify
               </div>
@@ -184,15 +185,15 @@ const Container = ({}) => {
               <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'>{""}.</div>
               <div className='m-0 bg-blue-30  w-full h-2/6 mt-1 flex items-center justify-center' onClick={() => clickInput("torso")}>
                 {/* {!privileges && show && <RoundNeckTshirt color={userSelection.torso.toString()} />} */}
-                {(show && privileges && graph[userSelection?.torso?.type]) || <RoundNeckTshirt />}
+                {show && graph[userSelection?.torso?.type]}
               </div>
               <div className='m-0 bg-blue-30 bg-slate-100 pt-2 z-10 w-full h-3/6 mt-1 flex items-center justify-center' onClick={() => clickInput("pants")}>
                 {/* {!privileges && show && <Jeans />} */}
-                {(show && privileges && graph[userSelection?.pants?.type]) || <Jeans />}
+                {show && graph[userSelection?.pants?.type]}
               </div>
               <div className='m-0 bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center' onClick={() => clickInput("shoes")}>
                 {/* {!privileges && show && <Sneaker2 />} */}
-                {(show && privileges && graph[userSelection?.shoes?.type]) || <Sneaker2 />}
+                {show && graph[userSelection?.shoes?.type]}
               </div>
             </div>
           </div>
