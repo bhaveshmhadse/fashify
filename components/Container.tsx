@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Cargo, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Shoe2, Sneaker2, Sneakers } from "./Clothes";
+import { Cargo, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Shoe2,  Sneakers } from "./Clothes";
 import { getItemFromLocalStorage, setItemtoLocalStorage } from "./utils";
 
 const Container = ({}) => {
