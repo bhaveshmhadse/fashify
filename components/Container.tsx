@@ -130,6 +130,7 @@ const Container = ({}) => {
   });
 
   useEffect(() => {
+    if (getItemFromLocalStorage("authenticate")) setprivileges(true);
     setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
     setTimeout(() => {
       // reloadClothes()
