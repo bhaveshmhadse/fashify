@@ -95,6 +95,28 @@ const Container = ({}) => {
 
   let [showDown, setshowDown] = useState(true);
 
+  let [privileges, setprivileges] = useState(false);
+
+  let [favPeoples, setfavPeoples] = useState({
+    Atharva: true,
+    Chitraksh: true,
+    chittu: true,
+    athya: true,
+    peru: true,
+    prerna: true,
+    prerana: true,
+    adika: true,
+    vaish: true,
+    vaishnavi: true,
+  });
+
+  const handleDebugger = () => {
+    let phrase = prompt("Enter Bhavesh's favourite person's name in order to try out beta features");
+    if (phrase in favPeoples) {
+      setItemtoLocalStorage("authenticate", true);
+      setprivileges(true);
+    }
+  };
   useEffect(() => {
     console.log("userSelection is:", userSelection);
   });
@@ -113,8 +135,10 @@ const Container = ({}) => {
         <div className='m-0 h-full lg:flex lg:flex-row flex flex-col w-full lg:w-11/12 lg:items-center lg:justify-center lg:px-6'>
           <div className='m-0 w-full py-4 lg:hidden items-center justify-center flex font-black text-2xl uppercase Quivera'>
             <div className='flex items-center  w-2/6 justify-around'>
-              <img className='w-1/6 mr-auto icon ' src='magic-wand.svg' alt='' />
-              <div className='m-o'>Fashify</div>
+              <img onClick={() => localStorage.clear()} className='w-1/6 mr-auto icon ' src='magic-wand.svg' alt='' />
+              <div className='m-0 select-none' onClick={handleDebugger}>
+                Fashify
+              </div>
             </div>
           </div>
 
@@ -126,7 +150,7 @@ const Container = ({}) => {
           </div>
 
           <div className=' m-0 h-auto lg:w-1/6 w-full flex items-center justify-evenly lg:flex-col lg:h-2/6'>
-            <div className={`shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "men" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("men")}>
+            <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "men" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("men")}>
               Men
             </div>
             <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "women" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("women")}>
@@ -148,16 +172,16 @@ const Container = ({}) => {
             <div className=' m-0 w-full  h-full flex flex-col items-center justify-center border-gray-300'>
               <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'>{""}.</div>
               <div className='m-0 bg-blue-30  w-full h-2/6 mt-1 flex items-center justify-center' onClick={() => clickInput("torso")}>
-                {/* {show && <RoundNeckTshirt color={userSelection.torso.toString()} />} */}
-                {(show && graph[userSelection?.torso?.type]) || <RoundNeckTshirt />}
+                {/* {!privileges && show && <RoundNeckTshirt color={userSelection.torso.toString()} />} */}
+                {(show && privileges && graph[userSelection?.torso?.type]) || <RoundNeckTshirt />}
               </div>
               <div className='m-0 bg-blue-30 bg-slate-100 pt-2 z-10 w-full h-3/6 mt-1 flex items-center justify-center' onClick={() => clickInput("pants")}>
-                {/* {show && <Jeans />} */}
-                {(show && graph[userSelection?.pants?.type]) || <Jeans />}
+                {/* {!privileges && show && <Jeans />} */}
+                {(show && privileges && graph[userSelection?.pants?.type]) || <Jeans />}
               </div>
               <div className='m-0 bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center' onClick={() => clickInput("shoes")}>
-                {/* {show && <Sneaker2 />} */}
-                {(show && graph[userSelection?.shoes?.type]) || <Sneaker2 />}
+                {/* {!privileges && show && <Sneaker2 />} */}
+                {(show && privileges && graph[userSelection?.shoes?.type]) || <Sneaker2 />}
               </div>
             </div>
           </div>
