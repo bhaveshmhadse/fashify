@@ -8,11 +8,19 @@ const Container = ({}) => {
 
   let [userSelection, setuserSelection] = useState({
     gender: "men",
-    torso: "",
-    pants: "",
-    accessories: "",
-    shoes: "",
+    head: { type: "", color: "white" },
+    torso: { type: "", color: "#ffff" },
+    pants: { type: "", color: "grey" },
+    accessories: { type: "", color: undefined },
+    shoes: { type: "", color: "black" },
   });
+
+  let [outfitType, setoutfitsType] = useState([
+    { type: "head", height: "h-1/6", toShow: false },
+    { type: "torso", height: "h-2/6", toShow: true },
+    { type: "pants", height: "h-3/6", toShow: true },
+    { type: "shoes", height: "h-1/6", toShow: true },
+  ]);
 
   let [currentSelectTedFashionPart, setcurrentSelectTedFashionPart] = useState("torso");
 
@@ -32,13 +40,6 @@ const Container = ({}) => {
       accesorsies: ["Heels", "Sneakers", "Chealsea Boots", "Low Top Sneakers", "Mid Top Sneakers", "High Top Sneakers", "Sports Shoes"],
     },
   });
-
-  let [outfitType, setoutfitsType] = useState([
-    { type: "head", height: "h-1/6", toShow: false },
-    { type: "torso", height: "h-2/6", toShow: true },
-    { type: "pant", height: "h-3/6", toShow: true },
-    { type: "shoe", height: "h-1/6", toShow: true },
-  ]);
 
   let [outfitColour, setoutfitColour] = useState({
     head: "#ffff",
@@ -60,6 +61,8 @@ const Container = ({}) => {
   };
 
   const handleColourChange = e => {
+    console.log("userSelection is:", userSelection);
+
     let { name, value } = e.target;
 
     setoutfitColour(previousOutfit => ({ ...previousOutfit, [name]: value }));
@@ -69,7 +72,7 @@ const Container = ({}) => {
   };
 
   const handleGenderChange = value => {
-    setuserSelection(previousSelections => ({ ...userSelection, gender: value }));
+    setuserSelection(previousSelections => ({ ...previousSelections, gender: value }));
     setItemtoLocalStorage("userSelection", { ...userSelection, gender: value });
   };
   const alertSomething = object => alert(JSON.stringify(object, null, 4));
@@ -84,6 +87,11 @@ const Container = ({}) => {
 
   useEffect(() => {
     setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
+    setTimeout(() => {
+      // reloadClothes()
+      console.log('userSelection is:', userSelection)
+      
+    }, 2000);
   }, []);
 
   return (
@@ -108,7 +116,8 @@ const Container = ({}) => {
                 let { type, height, toShow } = eachObject;
                 return (
                   <div key={Math.random().toString()} className={`flex items-center justify-start w-full ${height} ${!toShow ? " invisible " : ""} my-1 lg:w-1/2`}>
-                    <input className='bg-transparent rounded-full w-1/2 h-3 border-black ' type='color' name={type} id={type} value={userSelection[type]?.color} onChange={handleColourChange} />
+                    {/* {console.log("userSelection[type]?.color is:", userSelection[type]?.color)} */}
+                    <input className='bg-transparent rounded-full w-1/2 h-3 border-black ' type='color' name={type} id={type} value={userSelection[type]?.color} onChange={e => handleColourChange(e)} />
                   </div>
                 );
               })}
@@ -149,8 +158,8 @@ const Container = ({}) => {
                     <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-full lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-black hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "  " : " rounded-xl  border-gray-300 "} flex-col`}>
                       <img className='w-16 h-5/6 icon ' src={`${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
                       <div className='text-gray-600 m-auto flex flex-col items-center justify-center'>
-                        <div className="flex items-center justify-center bg-orange-40">{eachFashionPartDetailed}</div>
-                        <div className="flex items-center justify-center bg-green-60 text-lg">{userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "." : ""}</div>
+                        <div className='flex items-center justify-center bg-orange-40'>{eachFashionPartDetailed}</div>
+                        <div className='flex items-center justify-center bg-green-60 text-lg'>{userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "." : ""}</div>
                       </div>
                     </div>
                   );

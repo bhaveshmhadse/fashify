@@ -9,7 +9,7 @@ const RoundNeckTshirt = ({ color = "" }) => {
   }, []);
 
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' width='160' className='overflow-visible' viewBox='4 2 16 15'>
+    <svg xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' width='120' className='overflow-visible' viewBox='4 2 16 15'>
       <path stroke='black' fill={getColour} stroke-width='.05' d='M20.207 8.53l-2.193-1.405v15.884h-12.024v-15.854l-2.195 1.318-2.426-2.92 4.833-4.553h1.424c.51 1.754 2.018 3.5 4.377 3.5 2.392 0 3.876-1.699 4.381-3.5h1.42l4.826 4.586-2.423 2.944z-4.858-7.53c-.466 1.322-1.604 2.5-3.346 2.5-1.73 0-2.868-1.178-3.342-2.5h6.688z2.853-1h-12.396999999999998l-5.805 5.469 3.574 4.303 1.416-.85v15.087h14.024v-15.056l1.402.898 3.577-4.349-5.791-5.502z' />
     </svg>
   );
@@ -19,10 +19,10 @@ const Jeans = ({}) => {
   let [getColour, setgetColour] = useState("black");
 
   useEffect(() => {
-    setgetColour(getItemFromLocalStorage("userSelection")?.pant?.color || "grey");
+    setgetColour(getItemFromLocalStorage("userSelection")?.pants?.color || "grey");
   }, []);
   return (
-    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' className='overflow-visible' viewBox='0 3 511.999 511.999' width='270' /*style={{enableBackground:new "0 0 511.999 511.999"}}*/ xmlSpace='preserve'>
+    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' className='overflow-visible' viewBox='0 3 511.999 511.999' width='220' /*style={{enableBackground:new "0 0 511.999 511.999"}}*/ xmlSpace='preserve'>
       <g>
         <g>
           <path
@@ -368,10 +368,10 @@ const Sneaker2 = ({}) => {
   let [getColour, setgetColour] = useState("black");
 
   useEffect(() => {
-    setgetColour(getItemFromLocalStorage("userSelection")?.shoe?.color || "black");
+    setgetColour(getItemFromLocalStorage("userSelection")?.shoes?.color || "black");
   }, []);
   return (
-    <svg className='flip' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 -20 512.03 612.03' width='120' /*style={{enable-background:new 0 512.03 512.03;'*/ xmlSpace='preserve'>
+    <svg className='flip' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 -20 512.03 612.03' width='80' /*style={{enable-background:new 0 512.03 512.03;'*/ xmlSpace='preserve'>
       <g transform='translate(0 -1)'>
         <path
           stroke='black'
