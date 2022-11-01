@@ -153,7 +153,9 @@ const Container = ({}) => {
           <div className='m-0 w-full py-4 lg:fixed  lg:block hidden items-center justify-center top-0 font-black text-2xl uppercase Quivera'>
             <div className='flex items-center   w-1/6 justify-center'>
               <img className='w-1/6 mr-auto lg:mr-6 icon ' src='magic-wand.svg' alt='' />
-              <div className='m-0 lg:text-4xl'>Fashify</div>
+              <div className='m-0 lg:text-4xl' onClick={handleDebugger}>
+                Fashify
+              </div>
             </div>
           </div>
 
