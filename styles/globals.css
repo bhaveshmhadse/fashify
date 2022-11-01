@@ -1,10 +1,64 @@
-* {
-  margin: 0;
+@font-face {
+  font-family: "Bella";
+  src: url("/fonts/Bella.ttf");
 }
 
-.slate{
-    @apply bg-slate-100
+/* In your css file where you want to use the font */
+.Bella {
+  font-family: "Bella";
 }
+
+@font-face {
+  font-family: "Muifamoso";
+  src: url("/fonts/Muifamoso.ttf");
+}
+
+/* In your css file where you want to use the font */
+.Muifamoso {
+  font-family: "Muifamoso";
+}
+@font-face {
+  font-family: "Vonique";
+  src: url("/fonts/Vonique.ttf");
+}
+
+/* In your css file where you want to use the font */
+.Vonique {
+  font-family: "Vonique";
+}
+
+@font-face {
+    font-family: "Quivera";
+    src: url("/fonts/Quivera.otf");
+  }
+  
+  /* In your css file where you want to use the font */
+  .Quivera {
+    font-family: "Quivera";
+  }
+
+@font-face {
+  font-family: "Alegros";
+  src: url("/fonts/Alegros.ttf");
+}
+
+/* In your css file where you want to use the font */
+.Alegros {
+  font-family: "Alegros";
+}
+
+* {
+  margin: 0;
+  /* font-family: Bella; */
+  font-family: Muifamoso; 
+  font-weight: 900;
+  /* font-family: Alegros; */
+}
+
+.slate {
+  @apply bg-slate-100;
+}
+
 .full {
   width: 40vw;
 }
