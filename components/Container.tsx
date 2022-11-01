@@ -98,23 +98,24 @@ const Container = ({}) => {
   let [privileges, setprivileges] = useState(false);
 
   let [favPeoples, setfavPeoples] = useState({
-    Atharva: true,
-    Chitraksh: true,
+    atharva: true,
+    chitraksh: true,
     chittu: true,
     athya: true,
     peru: true,
     prerna: true,
     prerana: true,
-    adika: true,
-    vaish: true,
-    vaishnavi: true,
+    // adika: true,
+    // vaish: true,
+    // vaishnavi: true,
   });
 
   const handleDebugger = () => {
     let phrase = prompt("Enter the name of bhavesh's favourite person in order to try out beta features.");
-    if (phrase in favPeoples) {
+    if (phrase.toLowerCase() in favPeoples) {
       setItemtoLocalStorage("authenticate", true);
       setprivileges(true);
+      alert("You have been authenticated!");
     }
   };
   useEffect(() => {
