@@ -117,25 +117,7 @@ const Container = ({}) => {
               Woman
             </div>
           </div>
-          <div className='m-0 h-5/6 p-0 flex flex-row items-center lg:h-5/6 lg:w-5/6 '>
-            <div className='m-0 w-1/12 h-full flex flex-col items-center '>
-              {outfitType.map((eachObject, index) => {
-                let { type, height, toShow } = eachObject;
-                return (
-                  <div key={Math.random().toString()} className={`flex items-center justify-start w-full ${height} ${!toShow ? " invisible " : ""} my-1 lg:w-1/2`}>
-                    {/* {console.log("userSelection[type]?.color is:", userSelection[type]?.color)} */}
-                    <input className='m-0 bg-transparent rounded-full w-1/2 h-3 border-black ' type='color' name={type} id={type} value={userSelection[type]?.color} onChange={e => handleColourChange(e)} />
-                  </div>
-                );
-              })}
-            </div>
-            {/* <div className='m-0 w-full  h-full flex flex-col items-center justify-center border-gray-300'>
-              <div className='m-0 bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center'>{""}.</div>
-              <div className='m-0 bg-blue-30  w-full h-2/6 mt-1 flex items-center justify-center'>{show && <RoundNeckTshirt color={userSelection.torso.toString()} />}</div>
-              <div className='m-0 bg-blue-30 bg-slate-100 pt-2 z-10 w-full h-3/6 mt-1 flex items-center justify-center'>{show && <Jeans />}</div>
-              <div className='m-0 bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center'>{show && <Sneaker2 />}</div>
-            </div> */}
-          </div>
+          
           <div className='m-0 h-1/6 mt-10 z-0 flex items-center overflow-y-auto  lg:hidden lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 '></div>
           {showDown && (
             <div className='m-0 h-auto pb-2 fixed w-full lg:relative z-20 bottom-0  flex items-center  overflow-y-auto  lg:grid lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 '>
