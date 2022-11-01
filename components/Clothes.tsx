@@ -534,4 +534,15 @@ const Shoe2 = ({}) => {
   );
 };
 
-export { RoundNeckTshirt, Hoodie, Jeans, Cargo, Tracks, Sneakers, Heels, Shoe, Shoe2, Sneaker2 };
+const graph = {
+  "Round Neck Tshirt": <RoundNeckTshirt />,
+  Jeans: <Jeans />,
+  "Low Top Sneakers": <Sneaker2 />,
+  Cargo: <Cargo />,
+  Tracks: <Tracks />,
+  Hoodie: <Hoodie />,
+  "High Top Sneakers": <Shoe />,
+  Heels: <Heels />,
+};
+
+export { graph, RoundNeckTshirt, Hoodie, Jeans, Cargo, Tracks, Sneakers, Heels, Shoe, Shoe2, Sneaker2 };

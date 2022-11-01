@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Jeans, RoundNeckTshirt, Shoe, Shoe2, Sneaker2, Sneakers } from "./Clothes";
+import { Cargo, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Shoe2, Sneaker2, Sneakers } from "./Clothes";
 import { getItemFromLocalStorage, setItemtoLocalStorage } from "./utils";
 
 const Container = ({}) => {
@@ -27,7 +27,7 @@ const Container = ({}) => {
   let [genderOutfits, setgenderOutfits] = useState({
     men: {
       items: ["Torso", "Pants", "Shoes", "Accessories"],
-      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Fullsleeves Tshirt", "Shirt"],
+      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full-Sleeves Tshirt", "Shirt"],
       pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
       shoes: ["Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sports Shoes"],
     },
@@ -55,9 +55,13 @@ const Container = ({}) => {
     setShowClothTypeSelection(true);
     setcurrentSelectTedFashionPart(selectTedFashionPart);
   };
-  const handleDetailedClothesSelectionModal = (currentSelectTedFashionPart, eachFashionPartDetailed) => {
-    setuserSelection(previousSelection => ({ ...previousSelection, [currentSelectTedFashionPart]: eachFashionPartDetailed }));
+  const handleDetailedClothesSelectionModal = (key, value) => {
+    // setuserSelection(previousSelection => ({ ...previousSelection, [currentSelectTedFashionPart]: eachFashionPartDetailed }));
+
+    setuserSelection(previousSelection => ({ ...previousSelection, [key]: { type: value, color: previousSelection[key]?.color } }));
+    setItemtoLocalStorage("userSelection", { ...userSelection, [key]: { type: value, color: userSelection[key]?.color } });
     setShowClothTypeSelection(false);
+    // reloadClothes();
   };
 
   const handleColourChange = e => {
@@ -90,6 +94,10 @@ const Container = ({}) => {
   };
 
   let [showDown, setshowDown] = useState(true);
+
+  useEffect(() => {
+    console.log("userSelection is:", userSelection);
+  });
 
   useEffect(() => {
     setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
@@ -140,13 +148,16 @@ const Container = ({}) => {
             <div className=' m-0 w-full  h-full flex flex-col items-center justify-center border-gray-300'>
               <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'>{""}.</div>
               <div className='m-0 bg-blue-30  w-full h-2/6 mt-1 flex items-center justify-center' onClick={() => clickInput("torso")}>
-                {show && <RoundNeckTshirt color={userSelection.torso.toString()} />}
+                {/* {show && <RoundNeckTshirt color={userSelection.torso.toString()} />} */}
+                {(show && graph[userSelection?.torso?.type]) || <RoundNeckTshirt />}
               </div>
               <div className='m-0 bg-blue-30 bg-slate-100 pt-2 z-10 w-full h-3/6 mt-1 flex items-center justify-center' onClick={() => clickInput("pants")}>
-                {show && <Jeans />}
+                {/* {show && <Jeans />} */}
+                {(show && graph[userSelection?.pants?.type]) || <Jeans />}
               </div>
               <div className='m-0 bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center' onClick={() => clickInput("shoes")}>
-                {show && <Sneaker2 />}
+                {/* {show && <Sneaker2 />} */}
+                {(show && graph[userSelection?.shoes?.type]) || <Sneaker2 />}
               </div>
             </div>
           </div>
