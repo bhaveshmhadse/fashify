@@ -139,7 +139,7 @@ const Container = ({}) => {
 
     setTimeout(() => {
       alert("You can click the magic wand (Beside the 'Fashify' title) to reset the outfits.");
-    }, 1000);
+    }, 10000);
     if (getItemFromLocalStorage("authenticate")) setprivileges(true);
     if (getItemFromLocalStorage("userSelection")) setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
   }, []);
