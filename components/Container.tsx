@@ -161,7 +161,7 @@ const Container = ({}) => {
                   {eachFashionPart}
                   <img src={`${eachFashionPart}.png`} alt='' />
                 </div> */}
-                    <img className='m-0 w-16 h-auto icon ' src={`${eachFashionPart.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
+                    <img className='m-0 w-12 h-auto icon pb-1' src={`${eachFashionPart.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
                     <div className=' text-gray-600 m-auto uppercase'>{eachFashionPart}</div>
                   </div>
                 );
