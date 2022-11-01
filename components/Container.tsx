@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Cargo, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Shoe2,  Sneakers } from "./Clothes";
+import { Cargo, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Sneakers } from "./Clothes";
 import { getItemFromLocalStorage, setItemtoLocalStorage } from "./utils";
 
 const Container = ({}) => {
@@ -8,7 +8,7 @@ const Container = ({}) => {
 
   let [userSelection, setuserSelection] = useState({
     gender: "men",
-    head: { type: "", color: "white" },
+    head: { type: "Earring", color: "white" },
     torso: { type: "Round Neck Tshirt", color: "#ffff" },
     pants: { type: "Jeans", color: "grey" },
     accessories: { type: "", color: undefined },
@@ -29,15 +29,16 @@ const Container = ({}) => {
       items: ["Torso", "Pants", "Shoes", "Accessories"],
       torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full Sleeves Tshirt", "Shirt"],
       pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
-      shoes: ["Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sports Shoes"],
+      shoes: ["Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sport Shoes", "Boots"],
     },
     women: {
       items: ["Torso", "Pants", "Shoes", "Accessories"],
-      torso: ["Tops", "Saree", "Dress", "Shirts", "Round Neck Tshirts", "V Neck Tshirts", "Fullsleeves Tshirts", "Hoodies"],
-      pants: ["Jeans", "Cargo", "Chinos", "Track Pants"],
-      shoes: ["Heels", "Sneakers", "Chealsea", "Low Top Sneakers", "Mid Top Sneakers", "High Top Sneakers", "Sports Shoes"],
-      accesories: ["Heels", "Sneakers", "Chealsea Boots", "Low Top Sneakers", "Mid Top Sneakers", "High Top Sneakers", "Sports Shoes"],
-      accesorsies: ["Heels", "Sneakers", "Chealsea Boots", "Low Top Sneakers", "Mid Top Sneakers", "High Top Sneakers", "Sports Shoes"],
+      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full Sleeves Tshirt", "Shirt"],
+
+      pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
+      shoes: ["Heels", "Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sports Shoes", "Boots"],
+
+      accesories: ["Earring"],
     },
   });
 
@@ -182,17 +183,20 @@ const Container = ({}) => {
               })}
             </div>
             <div className=' m-0 w-full  h-full flex flex-col items-center justify-center border-gray-300'>
-              <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'>{""}.</div>
-              <div className='m-0 bg-blue-30  w-full h-2/6 mt-1 flex items-center justify-center' onClick={() => clickInput("torso")}>
-                {/* {!privileges && show && <RoundNeckTshirt color={userSelection.torso.toString()} />} */}
+              {/* <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'></div> */}
+              <div className='m-0 bg-blue-30  z-30 w-full h-1/6 mt-1 flex items-center justify-center bg-orange-' onClick={() => clickInput("earring")}>
+                {/* <img src="earring.svg" alt="" /> */}
+                {show && graph[userSelection?.accessories?.type]}
+
+                {/* <Earring/> */}
+              </div>
+              <div className='m-0 bg-blue-30  z-20 w-full h-2/6 mt-1 flex items-center justify-center' onClick={() => clickInput("torso")}>
                 {show && graph[userSelection?.torso?.type]}
               </div>
-              <div className='m-0 bg-blue-30 bg-slate-100 pt-2 z-10 w-full h-3/6 mt-1 flex items-center justify-center' onClick={() => clickInput("pants")}>
-                {/* {!privileges && show && <Jeans />} */}
+              <div className='m-0 bg-blue-30 bg-slate-100 pt-2 z-30 w-full h-3/6 mt-1 flex items-center justify-center' onClick={() => clickInput("pants")}>
                 {show && graph[userSelection?.pants?.type]}
               </div>
-              <div className='m-0 bg-blue-30  w-full h-1/6 mt-1 flex items-center justify-center' onClick={() => clickInput("shoes")}>
-                {/* {!privileges && show && <Sneaker2 />} */}
+              <div className='m-0 bg-blue-30 z-40  w-full h-1/6 mt-1 flex items-center justify-center' onClick={() => clickInput("shoes")}>
                 {show && graph[userSelection?.shoes?.type]}
               </div>
             </div>
