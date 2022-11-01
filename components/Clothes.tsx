@@ -26,7 +26,7 @@ const Jeans = ({}) => {
       <g>
         <g>
           <path
-            stroke='white'
+            stroke='#f1f5f9'
             strokeWidth='14'
             fill='black'
             // fillRule='nonzero'

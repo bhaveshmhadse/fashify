@@ -138,7 +138,7 @@ const Container = ({}) => {
           </div>
           <div className='m-0 h-1/6 mt-10 z-0 flex items-center overflow-y-auto  lg:hidden lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 '></div>
           {showDown && (
-            <div className='m-0 h-auto pb-2 fixed w-full lg:relative z-20 bottom-0  flex items-center  overflow-y-auto  lg:grid lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 '>
+            <div className='m-0 h-auto pb-2 fixed w-full lg:relative z-20 bottom-0  flex items-center  overflow-y-auto  lg:grid lg:w-2/6 lg:grid-cols-2 lg:h-5/6 lg:overflow-y-auto gap-4 px-2 border-t-2 pt-2 shadow-lg'>
               {Object.keys(genderOutfits[userSelection.gender]).map(eachFashionPart => {
                 if (eachFashionPart == "items") return;
                 return (

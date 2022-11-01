@@ -1,6 +1,10 @@
 * {
   margin: 0;
 }
+
+.slate{
+    @apply bg-slate-100
+}
 .full {
   width: 40vw;
 }
