@@ -111,7 +111,7 @@ const Container = ({}) => {
   });
 
   const handleDebugger = () => {
-    let phrase = prompt("Enter Bhavesh's favourite person's name in order to try out beta features");
+    let phrase = prompt("Enter the name of bhavesh's favourite person in order to try out beta features.");
     if (phrase in favPeoples) {
       setItemtoLocalStorage("authenticate", true);
       setprivileges(true);
