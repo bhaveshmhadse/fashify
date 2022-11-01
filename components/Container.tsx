@@ -85,9 +85,9 @@ const Container = ({}) => {
   const clickInput = id => {
     document.getElementById(id).click();
 
-    setTimeout(() => {
-      reloadClothes();
-    }, 2000);
+    // setTimeout(() => {
+    //   reloadClothes();
+    // }, 2000);
   };
 
   const reloadClothes = () => {
