@@ -118,7 +118,7 @@ const Container = ({}) => {
           </div>
 
           <div className=' m-0 h-auto lg:w-1/6 w-full flex items-center justify-evenly lg:flex-col lg:h-2/6'>
-            <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "men" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("men")}>
+            <div className={`shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "men" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("men")}>
               Men
             </div>
             <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "women" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("women")}>
@@ -170,7 +170,7 @@ const Container = ({}) => {
           )}
           {showClothTypeSelection && (
             <div className='m-0 flex fixed z-30 bottom-0 left-0 right-0 items-end lg:items-center justify-end h-1/6 p-0 rounded-t-xl rounded-b-none lg:right-0 lg:top-0 lg:ml-auto  lg:bottom-0 lg:w-1/6 lg:h-full lg:rounded-r-xl rounded-xl border-t-2 lg:border-0 border-slate-300 bg-slate-100 shadow-xl lg:shadow-xk'>
-              <button className='m-0 flex items-center justify-center absolute top-3 right-3 font-black text-black lg:left-3 lg:top-3 lg:justify-start' onClick={() => setShowClothTypeSelection(false)}>
+              <button className='m-0 flex items-center justify-center absolute top-3 right-3 font-black text-black lg:left-3 lg:top-3 lg:justify-start text-sm' onClick={() => setShowClothTypeSelection(false)}>
                 X
               </button>
               <div className='m-0 h-4/6 flex items-center overflow-x-auto lg:overflow-x-hidden lg:flex-col lg:w-full lg:px-2 lg:overflow-y-auto  w-full rounded-lg shadow-inne '>
