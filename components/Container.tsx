@@ -186,7 +186,7 @@ const Container = ({}) => {
             </div>
             <div className=' m-0 w-full  h-full flex flex-col items-center justify-center border-gray-300'>
               {/* <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'></div> */}
-              <div className='m-0 bg-blue-30  z-30 w-full h-1/6 mt-1 flex items-center justify-center bg-orange-' onClick={() => clickInput("earring")}>
+              <div className='m-0 bg-blue-30  z-30 w-full h-1/6 mt-1 flex items-center justify-center bg-orange-' onClick={() => clickInput("earri")}>
                 {/* <img src="earring.svg" alt="" /> */}
                 {show && graph[userSelection?.accessories?.type]}
 

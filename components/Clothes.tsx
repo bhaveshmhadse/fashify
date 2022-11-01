@@ -15,94 +15,7 @@ const RoundNeckTshirt = ({ color = "" }) => {
   );
 };
 
-const Jeans = ({}) => {
-  let [getColour, setgetColour] = useState("black");
 
-  useEffect(() => {
-    setgetColour(getItemFromLocalStorage("userSelection")?.pants?.color || "grey");
-  }, []);
-  return (
-    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' className='overflow-visible' viewBox='0 3 511.999 440.999' width='220' /*style={{enableBackground:new "0 0 511.999 511.999"}}*/ xmlSpace='preserve'>
-      <g>
-        <g>
-          <path
-            stroke='#f1f5f9'
-            strokeWidth='14'
-            fill='black'
-            // fillRule='nonzero'
-            d='M367.505,41.894c-0.285-0.296-0.578-0.584-0.874-0.864V8.017c0-4.427-3.589-8.017-8.017-8.017H153.386
-            c-4.427,0-8.017,3.589-8.017,8.017v33.013c-0.297,0.28-0.589,0.568-0.874,0.864c-4.778,4.959-7.268,11.479-7.014,18.359
-            l16.446,444.026c0.159,4.31,3.698,7.721,8.011,7.721h76.96c4.427,0,8.017-3.589,8.017-8.017V161.936
-            c0-5.01,4.076-9.086,9.086-9.086c5.01,0,9.086,4.076,9.086,9.086v342.046c0,4.427,3.589,8.017,8.017,8.017h76.96
-            c4.312,0,7.852-3.411,8.011-7.721l16.443-444.025 C374.773,53.372,372.283,46.852,367.505,41.894z'
-          />
-          <path
-            stroke={getColour}
-            strokeWidth='12'
-            // strokeLinejoin='round'
-            fill={getColour}
-            // fillRule='nonzero'
-            d='M306.771,16.033h43.825v18.2
-            c-0.391-0.018-0.785-0.029-1.18-0.029h-42.645V16.033z'
-          />
-          <path
-            stroke={getColour}
-            strokeWidth='12'
-            // strokeLinejoin='round'
-            fill={getColour}
-            // fillRule='nonzero'
-            d='M161.402,16.033h43.825v18.171h-42.645c-0.396,0-0.788,0.012-1.18,0.029
-            V16.033z'
-          />
-          <path
-            stroke={getColour}
-            strokeWidth='12'
-            // strokeLinejoin='round'
-            fill={getColour}
-            // fillRule='nonzero'
-            d='M153.503,59.66c-0.092-2.489,0.808-4.847,2.536-6.641c1.728-1.794,4.052-2.781,6.543-2.781h25.542v9.086
-            c0,18.689-14.836,33.97-33.348,34.704L153.503,59.66z'
-          />
-          <path
-            stroke={getColour}
-            strokeWidth='12'
-            // strokeLinejoin='round'
-            fill={getColour}
-            // fillRule='nonzero'
-            d='M247.982,138.137c-9.93,3.354-17.102,12.752-17.102,23.8v334.029h-61.218
-            l-14.293-385.921c27.078-1.047,48.789-23.392,48.789-50.722v-9.086h43.825V138.137z'
-          />
-          <path
-            stroke={getColour}
-            strokeWidth='12'
-            // strokeLinejoin='round'
-            fill={getColour}
-            // fillRule='nonzero'
-            d='M221.26,34.205V16.033h69.478v18.171H221.26z'
-          />
-          <path
-            stroke={getColour}
-            strokeWidth='12'
-            // strokeLinejoin='round'
-            fill={getColour}
-            // fillRule='nonzero'
-            d='M342.337,495.967h-61.219V161.937c0-11.048-7.172-20.446-17.102-23.8V50.238h43.825v9.086c0,27.331,21.71,49.675,48.789,50.722
-            L342.337,495.967z'
-          />
-          <path
-            stroke={getColour}
-            strokeWidth='12'
-            // strokeLinejoin='round'
-            fill={getColour}
-            // fillRule='nonzero'
-            d='M357.222,94.027c-18.511-0.733-33.348-16.015-33.348-34.704v-9.086h25.542c2.491,0,4.814,0.988,6.543,2.781
-            c1.728,1.794,2.628,4.152,2.536,6.641L357.222,94.027z'
-          />
-        </g>
-      </g>
-    </svg>
-  );
-};
 
 const Hoodie = ({}) => {
   let [getColour, setgetColour] = useState("black");
@@ -195,7 +108,7 @@ const FullSleevesTshirt = ({}) => {
   let [getColour, setgetColour] = useState("black");
 
   useEffect(() => {
-    setgetColour(getItemFromLocalStorage("userSelection")?.pants?.color || "grey");
+    setgetColour(getItemFromLocalStorage("userSelection")?.torso?.color || "grey");
   }, []);
   return (
     <svg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 481.091 481.091' width='190' /*style='enable-background:new 0 0 481.091 481.091;' */ xmlSpace='preserve'>
@@ -312,6 +225,94 @@ const Shirt = ({}) => {
   );
 };
 
+const Jeans = ({}) => {
+    let [getColour, setgetColour] = useState("black");
+  
+    useEffect(() => {
+      setgetColour(getItemFromLocalStorage("userSelection")?.pants?.color || "grey");
+    }, []);
+    return (
+      <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' className='overflow-visible' viewBox='0 3 511.999 440.999' width='220' /*style={{enableBackground:new "0 0 511.999 511.999"}}*/ xmlSpace='preserve'>
+        <g>
+          <g>
+            <path
+              stroke='#f1f5f9'
+              strokeWidth='14'
+              fill='black'
+              // fillRule='nonzero'
+              d='M367.505,41.894c-0.285-0.296-0.578-0.584-0.874-0.864V8.017c0-4.427-3.589-8.017-8.017-8.017H153.386
+              c-4.427,0-8.017,3.589-8.017,8.017v33.013c-0.297,0.28-0.589,0.568-0.874,0.864c-4.778,4.959-7.268,11.479-7.014,18.359
+              l16.446,444.026c0.159,4.31,3.698,7.721,8.011,7.721h76.96c4.427,0,8.017-3.589,8.017-8.017V161.936
+              c0-5.01,4.076-9.086,9.086-9.086c5.01,0,9.086,4.076,9.086,9.086v342.046c0,4.427,3.589,8.017,8.017,8.017h76.96
+              c4.312,0,7.852-3.411,8.011-7.721l16.443-444.025 C374.773,53.372,372.283,46.852,367.505,41.894z'
+            />
+            <path
+              stroke={getColour}
+              strokeWidth='12'
+              // strokeLinejoin='round'
+              fill={getColour}
+              // fillRule='nonzero'
+              d='M306.771,16.033h43.825v18.2
+              c-0.391-0.018-0.785-0.029-1.18-0.029h-42.645V16.033z'
+            />
+            <path
+              stroke={getColour}
+              strokeWidth='12'
+              // strokeLinejoin='round'
+              fill={getColour}
+              // fillRule='nonzero'
+              d='M161.402,16.033h43.825v18.171h-42.645c-0.396,0-0.788,0.012-1.18,0.029
+              V16.033z'
+            />
+            <path
+              stroke={getColour}
+              strokeWidth='12'
+              // strokeLinejoin='round'
+              fill={getColour}
+              // fillRule='nonzero'
+              d='M153.503,59.66c-0.092-2.489,0.808-4.847,2.536-6.641c1.728-1.794,4.052-2.781,6.543-2.781h25.542v9.086
+              c0,18.689-14.836,33.97-33.348,34.704L153.503,59.66z'
+            />
+            <path
+              stroke={getColour}
+              strokeWidth='12'
+              // strokeLinejoin='round'
+              fill={getColour}
+              // fillRule='nonzero'
+              d='M247.982,138.137c-9.93,3.354-17.102,12.752-17.102,23.8v334.029h-61.218
+              l-14.293-385.921c27.078-1.047,48.789-23.392,48.789-50.722v-9.086h43.825V138.137z'
+            />
+            <path
+              stroke={getColour}
+              strokeWidth='12'
+              // strokeLinejoin='round'
+              fill={getColour}
+              // fillRule='nonzero'
+              d='M221.26,34.205V16.033h69.478v18.171H221.26z'
+            />
+            <path
+              stroke={getColour}
+              strokeWidth='12'
+              // strokeLinejoin='round'
+              fill={getColour}
+              // fillRule='nonzero'
+              d='M342.337,495.967h-61.219V161.937c0-11.048-7.172-20.446-17.102-23.8V50.238h43.825v9.086c0,27.331,21.71,49.675,48.789,50.722
+              L342.337,495.967z'
+            />
+            <path
+              stroke={getColour}
+              strokeWidth='12'
+              // strokeLinejoin='round'
+              fill={getColour}
+              // fillRule='nonzero'
+              d='M357.222,94.027c-18.511-0.733-33.348-16.015-33.348-34.704v-9.086h25.542c2.491,0,4.814,0.988,6.543,2.781
+              c1.728,1.794,2.628,4.152,2.536,6.641L357.222,94.027z'
+            />
+          </g>
+        </g>
+      </svg>
+    );
+  };
 const Chino = ({}) => {
   let [getColour, setgetColour] = useState("black");
 
