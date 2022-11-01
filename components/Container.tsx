@@ -27,7 +27,7 @@ const Container = ({}) => {
   let [genderOutfits, setgenderOutfits] = useState({
     men: {
       items: ["Torso", "Pants", "Shoes", "Accessories"],
-      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full-Sleeves Tshirt", "Shirt"],
+      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full Sleeves Tshirt", "Shirt"],
       pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
       shoes: ["Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sports Shoes"],
     },
