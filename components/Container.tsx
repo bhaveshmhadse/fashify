@@ -127,19 +127,22 @@ const Container = ({}) => {
   };
 
   const dialogue = () => {
-    alert("You can try out different outfits as per your choice.\n Also you can change their colours by clicking on them or the small handles on left side of window.");
+    setTimeout(() => {
+      alert("You can try out different outfits as per your choice.\n Also you can change their colours by clicking on them or the small handles on left side of window.");
+    }, 3000);
   };
 
   useEffect(() => {
-    if (getItemFromLocalStorage("Speech") == undefined)
+    if (getItemFromLocalStorage("Speech") == undefined) {
+      setItemtoLocalStorage("Speech", true);
       setTimeout(() => {
         dialogue();
-        setItemtoLocalStorage("Speech", true);
-      }, 3000);
+      }, 5000);
+      setTimeout(() => {
+        alert("You can click the magic wand (Beside the 'Fashify' title) to reset the outfits.");
+      }, 20000);
+    }
 
-    setTimeout(() => {
-      alert("You can click the magic wand (Beside the 'Fashify' title) to reset the outfits.");
-    }, 10000);
     if (getItemFromLocalStorage("authenticate")) setprivileges(true);
     if (getItemFromLocalStorage("userSelection")) setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
   }, []);
