@@ -83,6 +83,10 @@ const Container = ({}) => {
 
   const clickInput = id => {
     document.getElementById(id).click();
+
+    setTimeout(() => {
+      reloadClothes();
+    }, 3000);
   };
 
   const reloadClothes = () => {
@@ -117,9 +121,8 @@ const Container = ({}) => {
       setprivileges(true);
       alert("You have been authenticated!");
       return;
-    }
-    else{
-        alert("Authentication failed.")
+    } else {
+      alert("Authentication failed.");
     }
   };
   useEffect(() => {
