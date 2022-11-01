@@ -27,7 +27,7 @@ const Container = ({}) => {
   let [genderOutfits, setgenderOutfits] = useState({
     men: {
       items: ["Torso", "Pants", "Shoes", "Accessories"],
-      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full Sleeves Tshirt", "Shirt"],
+      torso: ["Round Neck Tshirt", "Hoodie", "Full Sleeves Tshirt", "Shirt"],
       pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
       shoes: ["Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sport Shoes", "Boots"],
     },
@@ -127,9 +127,6 @@ const Container = ({}) => {
       alert("Authentication failed.");
     }
   };
-  useEffect(() => {
-    console.log("userSelection is:", userSelection);
-  });
 
   useEffect(() => {
     if (getItemFromLocalStorage("authenticate")) setprivileges(true);
@@ -220,7 +217,7 @@ const Container = ({}) => {
             </div>
           )}
           {showClothTypeSelection && (
-            <div className='m-0 flex fixed z-30 bottom-0 left-0 right-0 items-end lg:items-center justify-end h-1/5  rounded-t-xl rounded-b-none lg:right-0 lg:top-0 lg:ml-auto  lg:bottom-0 lg:w-1/6 lg:h-full lg:rounded-r-xl rounded-xl border-t-2 lg:border-0 border-slate-300 bg-white shadow-xl lg:shadow-xk '>
+            <div className='m-0 flex fixed z-30 bottom-0 left-0 right-0 items-end lg:items-center justify-end h-1/5  rounded-t-xl rounded-b-none lg:right-0 lg:top-0 lg:ml-auto  lg:bottom-0 lg:w-1/6 lg:h-full lg:rounded-r-xl rounded-xl border-t-2 lg:border-0 border-slate-300 bg-white shadow-xl lg:shadow-xk highest'>
               <button className='m-0 flex items-center justify-center absolute top-3 right-3 font-black text-black lg:left-3 lg:top-3 lg:justify-start text-sm' onClick={() => setShowClothTypeSelection(false)}>
                 X
               </button>

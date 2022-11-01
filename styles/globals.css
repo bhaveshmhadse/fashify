@@ -28,14 +28,14 @@
 }
 
 @font-face {
-    font-family: "Quivera";
-    src: url("/fonts/Quivera.otf");
-  }
-  
-  /* In your css file where you want to use the font */
-  .Quivera {
-    font-family: "Quivera";
-  }
+  font-family: "Quivera";
+  src: url("/fonts/Quivera.otf");
+}
+
+/* In your css file where you want to use the font */
+.Quivera {
+  font-family: "Quivera";
+}
 
 @font-face {
   font-family: "Alegros";
@@ -47,10 +47,14 @@
   font-family: "Alegros";
 }
 
+.highest {
+  z-index: 500;
+}
+
 * {
   margin: 0;
   /* font-family: Bella; */
-  font-family: Muifamoso; 
+  font-family: Muifamoso;
   font-weight: 900;
   /* font-family: Alegros; */
 }
