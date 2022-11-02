@@ -15,8 +15,6 @@ const RoundNeckTshirt = ({ color = "" }) => {
   );
 };
 
-
-
 const Hoodie = ({}) => {
   let [getColour, setgetColour] = useState("black");
 
@@ -226,93 +224,93 @@ const Shirt = ({}) => {
 };
 
 const Jeans = ({}) => {
-    let [getColour, setgetColour] = useState("black");
-  
-    useEffect(() => {
-      setgetColour(getItemFromLocalStorage("userSelection")?.pants?.color || "grey");
-    }, []);
-    return (
-      <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' className='overflow-visible' viewBox='0 3 511.999 440.999' width='220' /*style={{enableBackground:new "0 0 511.999 511.999"}}*/ xmlSpace='preserve'>
+  let [getColour, setgetColour] = useState("black");
+
+  useEffect(() => {
+    setgetColour(getItemFromLocalStorage("userSelection")?.pants?.color || "grey");
+  }, []);
+  return (
+    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' className='overflow-visible' viewBox='0 3 511.999 440.999' width='220' /*style={{enableBackground:new "0 0 511.999 511.999"}}*/ xmlSpace='preserve'>
+      <g>
         <g>
-          <g>
-            <path
-              stroke='#f1f5f9'
-              strokeWidth='14'
-              fill='black'
-              // fillRule='nonzero'
-              d='M367.505,41.894c-0.285-0.296-0.578-0.584-0.874-0.864V8.017c0-4.427-3.589-8.017-8.017-8.017H153.386
+          <path
+            stroke='#f1f5f9'
+            strokeWidth='14'
+            fill='black'
+            // fillRule='nonzero'
+            d='M367.505,41.894c-0.285-0.296-0.578-0.584-0.874-0.864V8.017c0-4.427-3.589-8.017-8.017-8.017H153.386
               c-4.427,0-8.017,3.589-8.017,8.017v33.013c-0.297,0.28-0.589,0.568-0.874,0.864c-4.778,4.959-7.268,11.479-7.014,18.359
               l16.446,444.026c0.159,4.31,3.698,7.721,8.011,7.721h76.96c4.427,0,8.017-3.589,8.017-8.017V161.936
               c0-5.01,4.076-9.086,9.086-9.086c5.01,0,9.086,4.076,9.086,9.086v342.046c0,4.427,3.589,8.017,8.017,8.017h76.96
               c4.312,0,7.852-3.411,8.011-7.721l16.443-444.025 C374.773,53.372,372.283,46.852,367.505,41.894z'
-            />
-            <path
-              stroke={getColour}
-              strokeWidth='12'
-              // strokeLinejoin='round'
-              fill={getColour}
-              // fillRule='nonzero'
-              d='M306.771,16.033h43.825v18.2
+          />
+          <path
+            stroke={getColour}
+            strokeWidth='12'
+            // strokeLinejoin='round'
+            fill={getColour}
+            // fillRule='nonzero'
+            d='M306.771,16.033h43.825v18.2
               c-0.391-0.018-0.785-0.029-1.18-0.029h-42.645V16.033z'
-            />
-            <path
-              stroke={getColour}
-              strokeWidth='12'
-              // strokeLinejoin='round'
-              fill={getColour}
-              // fillRule='nonzero'
-              d='M161.402,16.033h43.825v18.171h-42.645c-0.396,0-0.788,0.012-1.18,0.029
+          />
+          <path
+            stroke={getColour}
+            strokeWidth='12'
+            // strokeLinejoin='round'
+            fill={getColour}
+            // fillRule='nonzero'
+            d='M161.402,16.033h43.825v18.171h-42.645c-0.396,0-0.788,0.012-1.18,0.029
               V16.033z'
-            />
-            <path
-              stroke={getColour}
-              strokeWidth='12'
-              // strokeLinejoin='round'
-              fill={getColour}
-              // fillRule='nonzero'
-              d='M153.503,59.66c-0.092-2.489,0.808-4.847,2.536-6.641c1.728-1.794,4.052-2.781,6.543-2.781h25.542v9.086
+          />
+          <path
+            stroke={getColour}
+            strokeWidth='12'
+            // strokeLinejoin='round'
+            fill={getColour}
+            // fillRule='nonzero'
+            d='M153.503,59.66c-0.092-2.489,0.808-4.847,2.536-6.641c1.728-1.794,4.052-2.781,6.543-2.781h25.542v9.086
               c0,18.689-14.836,33.97-33.348,34.704L153.503,59.66z'
-            />
-            <path
-              stroke={getColour}
-              strokeWidth='12'
-              // strokeLinejoin='round'
-              fill={getColour}
-              // fillRule='nonzero'
-              d='M247.982,138.137c-9.93,3.354-17.102,12.752-17.102,23.8v334.029h-61.218
+          />
+          <path
+            stroke={getColour}
+            strokeWidth='12'
+            // strokeLinejoin='round'
+            fill={getColour}
+            // fillRule='nonzero'
+            d='M247.982,138.137c-9.93,3.354-17.102,12.752-17.102,23.8v334.029h-61.218
               l-14.293-385.921c27.078-1.047,48.789-23.392,48.789-50.722v-9.086h43.825V138.137z'
-            />
-            <path
-              stroke={getColour}
-              strokeWidth='12'
-              // strokeLinejoin='round'
-              fill={getColour}
-              // fillRule='nonzero'
-              d='M221.26,34.205V16.033h69.478v18.171H221.26z'
-            />
-            <path
-              stroke={getColour}
-              strokeWidth='12'
-              // strokeLinejoin='round'
-              fill={getColour}
-              // fillRule='nonzero'
-              d='M342.337,495.967h-61.219V161.937c0-11.048-7.172-20.446-17.102-23.8V50.238h43.825v9.086c0,27.331,21.71,49.675,48.789,50.722
+          />
+          <path
+            stroke={getColour}
+            strokeWidth='12'
+            // strokeLinejoin='round'
+            fill={getColour}
+            // fillRule='nonzero'
+            d='M221.26,34.205V16.033h69.478v18.171H221.26z'
+          />
+          <path
+            stroke={getColour}
+            strokeWidth='12'
+            // strokeLinejoin='round'
+            fill={getColour}
+            // fillRule='nonzero'
+            d='M342.337,495.967h-61.219V161.937c0-11.048-7.172-20.446-17.102-23.8V50.238h43.825v9.086c0,27.331,21.71,49.675,48.789,50.722
               L342.337,495.967z'
-            />
-            <path
-              stroke={getColour}
-              strokeWidth='12'
-              // strokeLinejoin='round'
-              fill={getColour}
-              // fillRule='nonzero'
-              d='M357.222,94.027c-18.511-0.733-33.348-16.015-33.348-34.704v-9.086h25.542c2.491,0,4.814,0.988,6.543,2.781
+          />
+          <path
+            stroke={getColour}
+            strokeWidth='12'
+            // strokeLinejoin='round'
+            fill={getColour}
+            // fillRule='nonzero'
+            d='M357.222,94.027c-18.511-0.733-33.348-16.015-33.348-34.704v-9.086h25.542c2.491,0,4.814,0.988,6.543,2.781
               c1.728,1.794,2.628,4.152,2.536,6.641L357.222,94.027z'
-            />
-          </g>
+          />
         </g>
-      </svg>
-    );
-  };
+      </g>
+    </svg>
+  );
+};
 const Chino = ({}) => {
   let [getColour, setgetColour] = useState("black");
 
@@ -878,11 +876,19 @@ const Chelsea = ({}) => {
 };
 
 const Earrings = ({}) => {
+  let [getColour, setgetColour] = useState("black");
+
+  useEffect(() => {
+    setgetColour(getItemFromLocalStorage("userSelection")?.head?.color || "grey");
+  }, []);
   return (
-    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 511.999 511.999' /*style='enable-background:new 0 0 511.999 511.999;'*/ xmlSpace='preserve'>
+    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 511.999 511.999' width='30' /*style='enable-background:new 0 0 511.999 511.999;'*/ xmlSpace='preserve'>
       <g>
         <g>
           <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill='black'
             d='M373.219,155.801c-7.421-7.096-17.168-11.003-27.443-11.003c-21.883,0-39.687,17.782-39.687,39.641
 			c0.001,4.328,3.51,7.837,7.838,7.837c4.328,0,7.837-3.508,7.837-7.837c0-13.216,10.773-23.968,24.014-23.968
 			c6.221,0,12.121,2.365,16.611,6.658c3.128,2.99,8.09,2.88,11.08-0.249C376.458,163.753,376.348,158.792,373.219,155.801z'
@@ -892,6 +898,9 @@ const Earrings = ({}) => {
       <g>
         <g>
           <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill='black'
             d='M373.953,343.711c0.019-0.017,0.039-0.031,0.057-0.048c3.257-2.852,3.586-7.802,0.736-11.058
 			c-2.85-3.257-7.8-3.586-11.058-0.736c-5.031,4.405-11.494,6.831-18.197,6.831c-15.223,0-27.607-12.36-27.607-27.553
 			s12.385-27.554,27.607-27.554c15.224,0,27.609,12.361,27.609,27.554c0,4.329,3.509,7.837,7.837,7.837
@@ -900,8 +909,20 @@ const Earrings = ({}) => {
 			c0,13.216-10.772,23.968-24.014,23.968c-4.328,0-7.837,3.508-7.837,7.837v28.838h-3.965c-7.202,0-13.061,5.859-13.061,13.061
 			v17.45c-11.29,7.809-18.705,20.829-18.705,35.554c0,12.974,5.761,24.622,14.853,32.553
 			c-33.867,11.778-58.247,43.964-58.247,81.748c0,47.725,38.882,86.552,86.674,86.552c47.793,0,86.675-38.827,86.675-86.552
-			C432.166,387.677,407.802,355.5,373.953,343.711z M336.586,260.755h0.001h17.806v8.088c-2.875-0.602-5.851-0.924-8.904-0.924
-			c-3.051,0-6.029,0.322-8.904,0.924V260.755z M345.491,496.327c-39.15,0-71.001-31.796-71.001-70.879
+			C432.166,387.677,407.802,355.5,373.953,343.711z '
+          />{" "}
+          <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill={getColour}
+            d='M336.586,260.755h0.001h17.806v8.088c-2.875-0.602-5.851-0.924-8.904-0.924
+			c-3.051,0-6.029,0.322-8.904,0.924V260.755z '
+          />{" "}
+          <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill={getColour}
+            d='M345.491,496.327c-39.15,0-71.001-31.796-71.001-70.879
 			c0-39.083,31.851-70.881,71.001-70.881c39.15,0,71.002,31.797,71.002,70.881C416.493,464.53,384.641,496.327,345.491,496.327z'
           />
         </g>
@@ -909,6 +930,9 @@ const Earrings = ({}) => {
       <g>
         <g>
           <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill='black'
             d='M233.695,225.966c-2.738-3.35-7.674-3.848-11.026-1.11c-3.352,2.738-3.849,7.676-1.111,11.027
 			c10.287,12.59,15.951,28.488,15.951,44.767c0,39.082-31.852,70.88-71.002,70.88c-39.15,0-71.001-31.797-71.001-70.88
 			c0-39.083,31.851-70.881,71.001-70.881c12.839,0,25.415,3.456,36.37,9.992c3.718,2.218,8.527,1.003,10.746-2.715
@@ -919,8 +943,20 @@ const Earrings = ({}) => {
 			c13.241,0,24.014,10.752,24.014,23.968c0,13.215-10.773,23.968-24.014,23.968c-4.328,0-7.837,3.508-7.837,7.837v28.838h-3.965
 			c-7.202,0-13.061,5.859-13.061,13.061v17.449c-11.29,7.81-18.705,20.831-18.705,35.555c0,12.974,5.761,24.623,14.852,32.553
 			c-33.867,11.779-58.246,43.964-58.246,81.748c0,47.726,38.882,86.553,86.674,86.553c47.793,0,86.675-38.827,86.675-86.553
-			C253.182,260.767,246.261,241.347,233.695,225.966z M157.605,115.958h17.806v8.087c-2.875-0.602-5.851-0.924-8.904-0.924
-			s-6.028,0.322-8.903,0.924V115.958z M166.508,138.795c15.223,0,27.608,12.361,27.608,27.554s-12.385,27.554-27.608,27.554
+			C253.182,260.767,246.261,241.347,233.695,225.966z '
+          />{" "}
+          <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill={getColour}
+            d='M157.605,115.958h17.806v8.087c-2.875-0.602-5.851-0.924-8.904-0.924
+			s-6.028,0.322-8.903,0.924V115.958z '
+          />{" "}
+          <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill='#f1f5f9'
+            d='M166.508,138.795c15.223,0,27.608,12.361,27.608,27.554s-12.385,27.554-27.608,27.554
 			c-15.223,0-27.608-12.361-27.608-27.554S151.285,138.795,166.508,138.795z'
           />
         </g>
@@ -928,6 +964,9 @@ const Earrings = ({}) => {
       <g>
         <g>
           <path
+            stroke='#f1f5f9'
+            strokeWidth='5'
+            fill='black'
             d='M219.224,272.813c-4.328,0-7.837,3.508-7.837,7.837c0,24.679-20.133,44.757-44.879,44.757
 			c-4.328,0-7.837,3.508-7.837,7.837c0,4.329,3.509,7.837,7.837,7.837c33.39,0,60.553-27.109,60.553-60.431
 			C227.061,276.321,223.552,272.813,219.224,272.813z'
@@ -937,6 +976,9 @@ const Earrings = ({}) => {
       <g>
         <g>
           <path
+            stroke={getColour}
+            strokeWidth='6'
+            fill='black'
             d='M398.207,417.611c-4.328,0-7.837,3.508-7.837,7.837c0,24.678-20.133,44.756-44.879,44.756
 			c-4.328,0-7.837,3.508-7.837,7.837c0,4.329,3.509,7.837,7.837,7.837c33.39,0,60.553-27.108,60.553-60.43
 			C406.044,421.119,402.535,417.611,398.207,417.611z'
@@ -989,8 +1031,8 @@ const HighTopSneaker = ({}) => {
         <path
           // stroke="orange"
           fill='black'
-        //   strokeWidth="22"
-          stroke="#f1f5f9"
+          //   strokeWidth="22"
+          stroke='#f1f5f9'
           d='M462.613,267.396c-22.526-15.019-41.16-14.829-78.311-10.811c-36.634,3.958-116.104-19.33-138.359-36.949
 		c-18.145-14.364-60.155-69.355-77.375-92.332c-5.754-7.677-14.87-11.843-24.332-11.333l-8.327-10.6
 		c-3.448-4.39-8.624-7.074-14.198-7.365c-5.573-0.279-11.001,1.84-14.888,5.845l-15.029,15.487
@@ -1167,4 +1209,4 @@ const graph = {
   Boots: <Boots />,
 };
 
-export { graph, RoundNeckTshirt, Hoodie, Jeans, Cargo, Tracks, Sneakers, Heels, Shoe, LowTopSneaker };
+export { Earrings, graph, RoundNeckTshirt, Hoodie, Jeans, Cargo, Tracks, Sneakers, Heels, Shoe, LowTopSneaker };

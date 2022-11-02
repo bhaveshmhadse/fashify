@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Cargo, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Sneakers } from "./Clothes";
+import { Cargo, Earrings, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Sneakers } from "./Clothes";
 import { getItemFromLocalStorage, setItemtoLocalStorage } from "./utils";
 
 const Container = ({}) => {
@@ -186,11 +186,9 @@ const Container = ({}) => {
             </div>
             <div className=' m-0 w-full  h-full flex flex-col items-center justify-center border-gray-300'>
               {/* <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'></div> */}
-              <div className='m-0 bg-blue-30  z-30 w-full h-1/6 mt-1 flex items-center justify-center bg-orange-' onClick={() => clickInput("earri")}>
+              <div className='m-0 bg-blue-30  z-30 w-full h-1/6 mt-1 flex items-center justify-center bg-orange-' onClick={() => clickInput("head")}>
                 {/* <img src="earring.svg" alt="" /> */}
-                {show && graph[userSelection?.accessories?.type]}
-
-                {/* <Earring/> */}
+                {show && graph[userSelection?.head?.type]}
               </div>
               <div className='m-0 bg-blue-30  z-20 w-full h-2/6 mt-1 flex items-center justify-center' onClick={() => clickInput("torso")}>
                 {show && graph[userSelection?.torso?.type]}
