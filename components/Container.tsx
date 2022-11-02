@@ -152,7 +152,7 @@ const Container = ({}) => {
               return (
                 <div key={Math.random().toString()} onClick={() => handleClothesSelectionModal(eachFashionPart)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full #f1f5f9space-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPart ? " bg-sky-50 border-blue-700 text-blue-700 " : " rounded-xl  border-gray-300 "} flex-col`}>
                   <Image width='0' height='10' className='m-0 w-8 h-auto icon pb-1 lg:p-0 lg:w-20' src={`/${eachFashionPart.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
-                  <div className=' text-gray-600 m-auto uppercase text-xs'>{eachFashionPart}</div>
+                  <div className=' text-gray-600 m-auto uppercase text-xs whitespace-nowrap'>{eachFashionPart}</div>
                 </div>
               );
             })}
@@ -170,8 +170,8 @@ const Container = ({}) => {
                     <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full #f1f5f9space-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "  " : " rounded-xl  border-gray-300 "} flex-col`}>
                       <Image width='0' height='10' className='m-0 w-16 h-5/6 icon ' src={`/${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
                       <div className=' text-gray-600 m-auto flex flex-col items-center justify-center'>
-                        <div className='m-0 flex items-center justify-center bg-orange-40 uppercase lg:pt-2 text-xs pt-2'>{eachFashionPartDetailed}</div>
-                        <div className='m-0 flex items-center justify-center bg-green-60 font-#000000 text-2xl text-green-600'>{userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "." : ""}</div>
+                        <div className='m-0 flex items-center justify-center bg-orange-40 uppercase lg:pt-2 text-xs pt-2 whitespace-nowrap'>{eachFashionPartDetailed}</div>
+                        <div className='m-0 flex items-center justify-center bg-green-60 font-black text-2xl text-green-600'>{userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "." : ""}</div>
                       </div>
                     </div>
                   );
