@@ -996,7 +996,7 @@ const Boots = ({}) => {
     setgetColour(getItemFromLocalStorage("userSelection")?.shoes?.color || "#000000");
   }, []);
   return (
-    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512.002 512.002' width='80' /*style='enable-background:new 0 0 512.002 512.002;'*/ xmlSpace='preserve'>
+    <svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512.002 512.002' width='70' /*style='enable-background:new 0 0 512.002 512.002;'*/ xmlSpace='preserve'>
       <g transform='translate(0 -1)'>
         <g>
           <path
