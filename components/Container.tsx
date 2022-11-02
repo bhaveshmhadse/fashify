@@ -8,11 +8,11 @@ const Container = ({}) => {
 
   let [userSelection, setuserSelection] = useState({
     gender: "men",
-    head: { type: "Earring", color: "white" },
+    head: { type: "", color: "white" },
     torso: { type: "Round Neck Tshirt", color: "#ffff" },
     pants: { type: "Jeans", color: "grey" },
     accessories: { type: "", color: undefined },
-    shoes: { type: "Low Top Sneakers", color: "black" },
+    shoes: { type: "Low Top Sneakers", color: "#000000" },
   });
 
   let [outfitType, setoutfitsType] = useState([
@@ -38,7 +38,7 @@ const Container = ({}) => {
       pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
       shoes: ["Heels", "Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sports Shoes", "Boots"],
 
-      accesories: ["Earring"],
+      head: ["Earring"],
     },
   });
 
@@ -151,14 +151,14 @@ const Container = ({}) => {
     <div className=' w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>
       <div className='m-0 w-full h-full lg:py-12 lg:items-center lg:justify-center lg:flex' style={{ width: "100vw", height: "100vh", margin: "0" }}>
         <div className='m-0 h-full lg:flex lg:flex-row flex flex-col w-full lg:w-11/12 lg:items-center lg:justify-center lg:px-6'>
-          <div className='m-0 w-full py-4 lg:hidden items-center justify-center flex font-black text-2xl uppercase Quivera'>
+          <div className='m-0 w-full py-4 lg:hidden items-center justify-center flex font-#000000 text-2xl uppercase Quivera'>
             <div className='flex items-center  w-2/6 justify-around'>
               <img onClick={() => localStorage.clear()} className='w-1/6 mr-auto icon z-50' src='magic-wand.svg' alt='' />
               <div className='m-0 select-none'>Fashify</div>
             </div>
           </div>
 
-          <div className='m-0 w-full py-4 lg:fixed  lg:block hidden items-center justify-center top-0 font-black text-2xl uppercase Quivera'>
+          <div className='m-0 w-full py-4 lg:fixed  lg:block hidden items-center justify-center top-0 font-#000000 text-2xl uppercase Quivera'>
             <div className='flex items-center   w-1/6 justify-center'>
               <img className='w-1/6 mr-auto lg:mr-6 icon ' onClick={() => localStorage.clear()} src='magic-wand.svg' alt='' />
               <div className='m-0 lg:text-4xl'>Fashify</div>
@@ -166,10 +166,10 @@ const Container = ({}) => {
           </div>
 
           <div className=' m-0 h-auto lg:w-1/6 w-full flex items-center justify-evenly lg:flex-col lg:h-2/6'>
-            <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "men" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("men")}>
+            <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-#000000 text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "men" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("men")}>
               Men
             </div>
-            <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-black text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "women" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("women")}>
+            <div className={`lg:shadow-xl flex items-center justify-center px-8 py-2 rounded-xl font-#000000 text-md hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection.gender == "women" ? " bg-blue-200 border-blue-700 text-blue-700 " : " bg-gray-200 border-gray-700 text-gray-700 "}`} onClick={() => handleGenderChange("women")}>
               Woman
             </div>
           </div>
@@ -179,7 +179,7 @@ const Container = ({}) => {
                 let { type, height, toShow } = eachObject;
                 return (
                   <div key={Math.random().toString()} className={`flex items-center justify-start w-full ${height} ${!toShow ? " invisible " : ""} my-1 lg:w-1/2`}>
-                    <input className='m-0 bg-transparent rounded-full w-1/2 h-3 border-black ' type='color' name={type} id={type} value={userSelection[type]?.color} onChange={e => handleColourChange(e)} />
+                    <input className='m-0 bg-transparent rounded-full w-1/2 h-3 border-#000000 ' type='color' name={type} id={type} value={userSelection[type]?.color} onChange={e => handleColourChange(e)} />
                   </div>
                 );
               })}
@@ -206,11 +206,7 @@ const Container = ({}) => {
             {Object.keys(genderOutfits[userSelection.gender]).map(eachFashionPart => {
               if (eachFashionPart == "items") return;
               return (
-                <div key={Math.random().toString()} onClick={() => handleClothesSelectionModal(eachFashionPart)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-black hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPart ? " bg-slate-100 border-blue-700 text-blue-700 " : " rounded-xl  border-gray-300 "} flex-col`}>
-                  {/* <div key={Math.random().toString()} onClick={() => handleClothesSelectionModal(eachFashionPart)} className='m-0  px-8  h-3/4 items-center justify-center flex font-black text-xl lg:w-full lg:h-full lg:m-0 lg:p-0 items rounded-xl border-1 border-gray-300'>
-                  {eachFashionPart}
-                  <img src={`${eachFashionPart}.png`} alt='' />
-                </div> */}
+                <div key={Math.random().toString()} onClick={() => handleClothesSelectionModal(eachFashionPart)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPart ? " bg-slate-100 border-blue-700 text-blue-700 " : " rounded-xl  border-gray-300 "} flex-col`}>
                   <img className='m-0 w-8 h-auto icon pb-1 lg:p-0 lg:w-20' src={`${eachFashionPart.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
                   <div className=' text-gray-600 m-auto uppercase text-xs'>{eachFashionPart}</div>
                 </div>
@@ -220,18 +216,18 @@ const Container = ({}) => {
 
           {showClothTypeSelection && (
             <div className='m-0 flex fixed  bottom-0 left-0 right-0 items-end lg:items-center justify-end h-1/5  rounded-t-xl rounded-b-none lg:right-0 lg:top-0 lg:ml-auto  lg:bottom-0 lg:w-1/6 lg:h-full lg:rounded-r-xl rounded-xl border-t-2 lg:border-0 border-slate-300 bg-white shadow-xl lg:shadow-xk highest z-50'>
-              <button className='m-0 flex items-center justify-center absolute top-3 right-3 font-black text-black lg:left-3 lg:top-3 lg:justify-start text-sm' onClick={() => setShowClothTypeSelection(false)}>
+              <button className='m-0 flex items-center justify-center absolute top-3 right-3 font-#000000 text-#000000 lg:left-3 lg:top-3 lg:justify-start text-sm' onClick={() => setShowClothTypeSelection(false)}>
                 X
               </button>
               <div className='m-0 h-4/6 flex items-center overflow-x-auto lg:overflow-x-hidden lg:flex-col lg:w-full lg:px-2 lg:overflow-y-auto  w-full rounded-lg shadow-inne pb-5'>
                 {genderOutfits[userSelection.gender][currentSelectTedFashionPart].map(eachFashionPartDetailed => {
                   if (eachFashionPartDetailed == "items") return;
                   return (
-                    <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-black hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "  " : " rounded-xl  border-gray-300 "} flex-col`}>
+                    <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "  " : " rounded-xl  border-gray-300 "} flex-col`}>
                       <img className='m-0 w-16 h-5/6 icon ' src={`${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
                       <div className=' text-gray-600 m-auto flex flex-col items-center justify-center'>
                         <div className='m-0 flex items-center justify-center bg-orange-40 uppercase lg:pt-2 text-xs pt-2'>{eachFashionPartDetailed}</div>
-                        <div className='m-0 flex items-center justify-center bg-green-60 font-black text-2xl text-green-600'>{userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "." : ""}</div>
+                        <div className='m-0 flex items-center justify-center bg-green-60 font-#000000 text-2xl text-green-600'>{userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "." : ""}</div>
                       </div>
                     </div>
                   );
