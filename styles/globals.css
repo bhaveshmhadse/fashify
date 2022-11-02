@@ -60,7 +60,7 @@
 }
 
 .slate {
-  @apply bg-slate-100;
+  @apply bg-sky-50;
 }
 
 .full {
@@ -95,7 +95,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .item {
   height: 40vw;
-  /* color: #ffff */
+  /* color: #f1f5f9 */
 }
 
 .baray {

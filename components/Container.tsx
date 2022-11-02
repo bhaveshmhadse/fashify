@@ -1,16 +1,20 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Cargo, Earrings, graph, Hoodie, Jeans, RoundNeckTshirt, Shoe, Sneakers } from "./Clothes";
+import { graph } from "./Clothes";
+
 import { getItemFromLocalStorage, setItemtoLocalStorage } from "./utils";
 
 const Container = ({}) => {
   // States
+  let [show, setshow] = useState(true);
   let [showClothTypeSelection, setShowClothTypeSelection] = useState(false);
+  let [currentSelectTedFashionPart, setcurrentSelectTedFashionPart] = useState("torso");
 
   let [userSelection, setuserSelection] = useState({
     gender: "men",
-    head: { type: "", color: "white" },
-    torso: { type: "Round Neck Tshirt", color: "#ffff" },
-    pants: { type: "Jeans", color: "grey" },
+    head: { type: "", color: "#f1f5f9" },
+    torso: { type: "Round Neck Tshirt", color: "#f1f5f9" },
+    pants: { type: "Jeans", color: "#808080" },
     accessories: { type: "", color: undefined },
     shoes: { type: "Low Top Sneakers", color: "#000000" },
   });
@@ -22,8 +26,6 @@ const Container = ({}) => {
     { type: "shoes", height: "h-1/6", toShow: true },
   ]);
 
-  let [currentSelectTedFashionPart, setcurrentSelectTedFashionPart] = useState("torso");
-
   let [genderOutfits, setgenderOutfits] = useState({
     men: {
       items: ["Torso", "Pants", "Shoes", "Accessories"],
@@ -33,134 +35,79 @@ const Container = ({}) => {
     },
     women: {
       items: ["Torso", "Pants", "Shoes", "Accessories"],
-      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full Sleeves Tshirt", "Shirt"],
-
-      pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
-      shoes: ["Heels", "Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sports Shoes", "Boots"],
-
       head: ["Earring"],
+      torso: ["Round Neck Tshirt", "V Neck Tshirt", "Hoodie", "Full Sleeves Tshirt", "Shirt"],
+      pants: ["Jeans", "Cargo", "Chinos", "Tracks"],
+      shoes: ["Heels", "Low Top Sneakers", "High Top Sneakers", "Chelsea", "Sport Shoes", "Boots"],
     },
   });
 
-  let [outfitColour, setoutfitColour] = useState({
-    head: "#ffff",
-    torso: "#ffff",
-    pant: "#ffff",
-    shoe: "#ffff",
-  });
-
-  let [show, setshow] = useState(true);
-
   // Functions
+  const clickInput = id => document.getElementById(id).click();
+
+  const handleGenderChange = value => {
+    setuserSelection(previousSelections => ({ ...previousSelections, gender: value }));
+    setItemtoLocalStorage("userSelection", { ...userSelection, gender: value });
+  };
+
   const handleClothesSelectionModal = selectTedFashionPart => {
     setShowClothTypeSelection(true);
     setcurrentSelectTedFashionPart(selectTedFashionPart);
   };
   const handleDetailedClothesSelectionModal = (key, value) => {
-    // setuserSelection(previousSelection => ({ ...previousSelection, [currentSelectTedFashionPart]: eachFashionPartDetailed }));
-
     setuserSelection(previousSelection => ({ ...previousSelection, [key]: { type: value, color: previousSelection[key]?.color } }));
     setItemtoLocalStorage("userSelection", { ...userSelection, [key]: { type: value, color: userSelection[key]?.color } });
+
     setShowClothTypeSelection(false);
-    // reloadClothes();
   };
 
   const handleColourChange = e => {
     let { name, value } = e.target;
 
-    setoutfitColour(previousOutfit => ({ ...previousOutfit, [name]: value }));
     setuserSelection(previousSelection => ({ ...previousSelection, [name]: { type: previousSelection[name].type, color: value } }));
     setItemtoLocalStorage("userSelection", { ...userSelection, [name]: { type: userSelection[name].type, color: value } });
 
     reloadClothes();
   };
 
-  const handleGenderChange = value => {
-    setuserSelection(previousSelections => ({ ...previousSelections, gender: value }));
-    setItemtoLocalStorage("userSelection", { ...userSelection, gender: value });
-  };
-  const alertSomething = object => alert(JSON.stringify(object, null, 4));
-
-  const clickInput = id => {
-    document.getElementById(id).click();
-
-    // setTimeout(() => {
-    //   reloadClothes();
-    // }, 2000);
-  };
-
   const reloadClothes = () => {
     setshow(false);
 
+    setTimeout(() => setshow(true), 0);
+  };
+
+  const handleDialogue = () => {
+    setItemtoLocalStorage("Speech", true);
+
     setTimeout(() => {
-      setshow(true);
-    }, 0);
-  };
-
-  let [showDown, setshowDown] = useState(true);
-
-  let [privileges, setprivileges] = useState(false);
-
-  let [favPeoples, setfavPeoples] = useState({
-    atharva: true,
-    chitraksh: true,
-    chittu: true,
-    athya: true,
-    peru: true,
-    prerna: true,
-    prerana: true,
-    // adika: true,
-    // vaish: true,
-    // vaishnavi: true,
-  });
-
-  const handleDebugger = () => {
-    let phrase = prompt("Enter the name of bhavesh's favourite person in order to try out beta features.");
-    if (phrase.toLowerCase() in favPeoples) {
-      setItemtoLocalStorage("authenticate", true);
-      setprivileges(true);
-      alert("You have been authenticated!");
-      return;
-    } else {
-      alert("Authentication failed.");
-    }
-  };
-
-  const dialogue = () => {
+      alert("You can click the magic wand (Beside the 'Fashify' title) to reset the outfits.");
+    }, 20000);
     setTimeout(() => {
       alert("You can try out different outfits as per your choice.\n Also you can change their colours by clicking on them or the small handles on left side of window.");
-    }, 3000);
+    }, 4000);
   };
 
-  useEffect(() => {
-    if (getItemFromLocalStorage("Speech") == undefined) {
-      setItemtoLocalStorage("Speech", true);
-      setTimeout(() => {
-        dialogue();
-      }, 5000);
-      setTimeout(() => {
-        alert("You can click the magic wand (Beside the 'Fashify' title) to reset the outfits.");
-      }, 20000);
-    }
-
-    if (getItemFromLocalStorage("authenticate")) setprivileges(true);
+  const handlePageLoadUtilities = () => {
+    if (getItemFromLocalStorage("Speech") == undefined) handleDialogue();
     if (getItemFromLocalStorage("userSelection")) setuserSelection(previousSelection => ({ ...previousSelection, ...getItemFromLocalStorage("userSelection") }));
-  }, []);
+  };
+
+  useEffect(() => handlePageLoadUtilities(), []);
 
   return (
-    <div className=' w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-slate-100 relative'>
+    <div className=' w-full h-auto lg:h-full flex flex-col items-center justify-center m-0 bg-sky-50 relative'>
       <div className='m-0 w-full h-full lg:py-12 lg:items-center lg:justify-center lg:flex' style={{ width: "100vw", height: "100vh", margin: "0" }}>
         <div className='m-0 h-full lg:flex lg:flex-row flex flex-col w-full lg:w-11/12 lg:items-center lg:justify-center lg:px-6'>
           <div className='m-0 w-full py-4 lg:hidden items-center justify-center flex font-#000000 text-2xl uppercase Quivera'>
             <div className='flex items-center  w-2/6 justify-around'>
-              <img onClick={() => localStorage.clear()} className='w-1/6 mr-auto icon z-50' src='magic-wand.svg' alt='' />
+              <Image width='0' height='10' onClick={() => localStorage.clear()} className='w-1/6 mr-auto icon z-50' src='/magic-wand.svg' alt='' />
               <div className='m-0 select-none'>Fashify</div>
             </div>
           </div>
 
           <div className='m-0 w-full py-4 lg:fixed  lg:block hidden items-center justify-center top-0 font-#000000 text-2xl uppercase Quivera'>
             <div className='flex items-center   w-1/6 justify-center'>
-              <img className='w-1/6 mr-auto lg:mr-6 icon ' onClick={() => localStorage.clear()} src='magic-wand.svg' alt='' />
+              <Image width='0' height='10' className='w-1/6 mr-auto lg:mr-6 icon ' onClick={() => localStorage.clear()} src='/magic-wand.svg' alt='' />
               <div className='m-0 lg:text-4xl'>Fashify</div>
             </div>
           </div>
@@ -185,15 +132,13 @@ const Container = ({}) => {
               })}
             </div>
             <div className=' m-0 w-full  h-full flex flex-col items-center justify-center border-gray-300'>
-              {/* <div className='m-0 bg-blue-30 text-transparent  w-full h-1/6 mt-1 flex items-center justify-center'></div> */}
               <div className='m-0 bg-blue-30  z-30 w-full h-1/6 mt-1 flex items-center justify-center bg-orange-' onClick={() => clickInput("head")}>
-                {/* <img src="earring.svg" alt="" /> */}
                 {show && graph[userSelection?.head?.type]}
               </div>
               <div className='m-0 bg-blue-30  z-20 w-full h-2/6 mt-1 flex items-center justify-center' onClick={() => clickInput("torso")}>
                 {show && graph[userSelection?.torso?.type]}
               </div>
-              <div className='m-0 bg-blue-30 bg-slate-100 pt-2 z-30 w-full h-3/6 mt-1 flex items-center justify-center' onClick={() => clickInput("pants")}>
+              <div className='m-0 bg-blue-30 bg-sky-50 pt-2 z-30 w-full h-3/6 mt-1 flex items-center justify-center' onClick={() => clickInput("pants")}>
                 {show && graph[userSelection?.pants?.type]}
               </div>
               <div className='m-0 bg-blue-30 z-40  w-full h-1/6 mt-1 flex items-center justify-center' onClick={() => clickInput("shoes")}>
@@ -206,8 +151,8 @@ const Container = ({}) => {
             {Object.keys(genderOutfits[userSelection.gender]).map(eachFashionPart => {
               if (eachFashionPart == "items") return;
               return (
-                <div key={Math.random().toString()} onClick={() => handleClothesSelectionModal(eachFashionPart)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPart ? " bg-slate-100 border-blue-700 text-blue-700 " : " rounded-xl  border-gray-300 "} flex-col`}>
-                  <img className='m-0 w-8 h-auto icon pb-1 lg:p-0 lg:w-20' src={`${eachFashionPart.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
+                <div key={Math.random().toString()} onClick={() => handleClothesSelectionModal(eachFashionPart)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full #f1f5f9space-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPart ? " bg-sky-50 border-blue-700 text-blue-700 " : " rounded-xl  border-gray-300 "} flex-col`}>
+                  <Image width='0' height='10' className='m-0 w-8 h-auto icon pb-1 lg:p-0 lg:w-20' src={`/${eachFashionPart.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
                   <div className=' text-gray-600 m-auto uppercase text-xs'>{eachFashionPart}</div>
                 </div>
               );
@@ -223,8 +168,8 @@ const Container = ({}) => {
                 {genderOutfits[userSelection.gender][currentSelectTedFashionPart].map(eachFashionPartDetailed => {
                   if (eachFashionPartDetailed == "items") return;
                   return (
-                    <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full whitespace-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "  " : " rounded-xl  border-gray-300 "} flex-col`}>
-                      <img className='m-0 w-16 h-5/6 icon ' src={`${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
+                    <div key={Math.random().toString()} onClick={() => handleDetailedClothesSelectionModal(currentSelectTedFashionPart, eachFashionPartDetailed)} className={`w-auto lg:py-8 lg:my-2 px-12 mx-1 h-3/4 rounded-lg items-center justify-center flex font-#000000 hover:border-0 text-sm lg:w-full lg:m-0 lg:p-0 item lg:h-full #f1f5f9space-nowrap hover:bg-blue-200 hover:border-blue-700 hover:text-blue-700 duration-300 ${userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "  " : " rounded-xl  border-gray-300 "} flex-col`}>
+                      <Image width='0' height='10' className='m-0 w-16 h-5/6 icon ' src={`/${eachFashionPartDetailed.toString().toLowerCase().split(" ").join("-")}.svg`} alt='' />
                       <div className=' text-gray-600 m-auto flex flex-col items-center justify-center'>
                         <div className='m-0 flex items-center justify-center bg-orange-40 uppercase lg:pt-2 text-xs pt-2'>{eachFashionPartDetailed}</div>
                         <div className='m-0 flex items-center justify-center bg-green-60 font-#000000 text-2xl text-green-600'>{userSelection[currentSelectTedFashionPart] == eachFashionPartDetailed ? "." : ""}</div>
