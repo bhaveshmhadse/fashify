@@ -72,7 +72,6 @@ const Container = ({}) => {
 
   const reloadClothes = () => {
     setshow(false);
-
     setTimeout(() => setshow(true), 0);
   };
 
